@@ -5,4 +5,5 @@
     <string name="edit_text_worker_name">Imię</string>
     <string name="edit_text_worker_surrname">Nazwisko</string>
     <string name="edit_text_worker_salary">Wypłata</string>
+
 </resources>
