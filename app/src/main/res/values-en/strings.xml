@@ -2,5 +2,8 @@
     <string name="app_name">FaraonHrPlus</string>
     <string name="worker_list_button_name">Workers List</string>
     <string name="calendar_button_name">Calendar</string>
+    <string name="edit_text_worker_name">First name</string>
+    <string name="edit_text_worker_surrname">Surrname</string>
+    <string name="edit_text_worker_salary">Salary</string>
 
 </resources>
