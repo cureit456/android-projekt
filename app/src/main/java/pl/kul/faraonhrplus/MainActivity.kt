@@ -17,7 +17,12 @@ class MainActivity : AppCompatActivity() {
         val showWorkersButton: Button = findViewById(R.id.showWorkersButton)
         val showCalendarButton: Button = findViewById((R.id.showCalendarButton))
         val addEmployeeButton: Button = findViewById((R.id.addEmployeeMainButton))
+        val goToCalulator: Button = findViewById(R.id.salaryNettoCalculatorButton)
 
+        goToCalulator.setOnClickListener {
+            val intent = Intent(this@MainActivity, SalaryCalulatorActivity::class.java)
+            startActivity(intent)
+        }
         showWorkersButton.setOnClickListener {
             val intent = Intent(this@MainActivity, WorkerListActivity::class.java)
             startActivity(intent)

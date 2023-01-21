@@ -7,5 +7,8 @@
     <string name="edit_text_worker_salary">Wypłata</string>
     <string name="toast_employee_success">Pomyślnie dodano pracownika o imieniu</string>
     <string name="toast_employee_fail">Coś poszło nie tak przy dodawaniu pracownika upewnij się czy dane są prawidłowe</string>
-
+    <string name="real_salary_calulator">Kalkulator wynagrodzeń</string>
+    <string name="real_salary_brutto">Wypłata brutto</string>
+    <string name="calulate_netto">oblicz</string>
+    <string name="netto_result_cheer">Twoja wypłata na rękę, powodzonka trzymaj się w tej polsce</string>
 </resources>
