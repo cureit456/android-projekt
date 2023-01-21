@@ -15,7 +15,6 @@
         <activity
             android:name=".AddWorkerActivity"
             android:exported="false"
-            android:label="@string/title_activity_add_worker"
             android:theme="@style/Theme.FaraonHrPlus.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
@@ -36,7 +35,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SelectedUserActivity"
+            android:name=".WorkerInfoActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
