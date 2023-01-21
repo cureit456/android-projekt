@@ -5,5 +5,7 @@
     <string name="edit_text_worker_name">First name</string>
     <string name="edit_text_worker_surrname">Surrname</string>
     <string name="edit_text_worker_salary">Salary</string>
+    <string name="toast_employee_success">Successfully added employee named</string>
+    <string name="toast_employee_fail">Something went wrong when adding an employee, make sure the details are correct</string>
 
 </resources>

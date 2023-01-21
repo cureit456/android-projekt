@@ -5,5 +5,7 @@
     <string name="edit_text_worker_name">Imię</string>
     <string name="edit_text_worker_surrname">Nazwisko</string>
     <string name="edit_text_worker_salary">Wypłata</string>
+    <string name="toast_employee_success">Pomyślnie dodano pracownika o imieniu</string>
+    <string name="toast_employee_fail">Coś poszło nie tak przy dodawaniu pracownika upewnij się czy dane są prawidłowe</string>
 
 </resources>

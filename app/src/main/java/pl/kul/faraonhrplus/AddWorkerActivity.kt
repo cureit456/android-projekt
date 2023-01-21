@@ -1,16 +1,16 @@
 package pl.kul.faraonhrplus
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import pl.kul.faraonhrplus.entities.Employee
 import pl.kul.faraonhrplus.schemas.AppDatabase
-import java.util.*
+import pl.kul.faraonhrplus.utils.EmployeeDataValidator
+
 
 class AddWorkerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,6 @@ class AddWorkerActivity : AppCompatActivity() {
         val editTextTextEmailAddress : EditText = findViewById((R.id.editTextTextEmailAddress))
 
 
-
         val addEmployeeButton: Button = findViewById((R.id.addEmployeeButton))
 
         addEmployeeButton.setOnClickListener {
@@ -31,22 +30,36 @@ class AddWorkerActivity : AppCompatActivity() {
                 AppDatabase::class.java,"f-database").allowMainThreadQueries()
                 .build()
 
-            val employee = Employee(
+            val validator : EmployeeDataValidator = EmployeeDataValidator(
                 editTextTextPersonName.text.toString(),
                 editTextTextSurrname.text.toString(),
                 editTextTextEmailAddress.text.toString(),
-                editTextTextSalary.text.toString().toDouble()
-                )
+                editTextTextSalary.text.toString())
 
-            dataBase.employeeDao().insertAll(employee)
-            showToastInfo(editTextTextPersonName.text.toString(), editTextTextSurrname.text.toString())
-            val intent = Intent(this@AddWorkerActivity, WorkerListActivity::class.java)
-            startActivity(intent)
+            if(validator.isEmployeeValid()){
+                val employee = Employee(
+                    editTextTextPersonName.text.toString(),
+                    editTextTextSurrname.text.toString(),
+                    editTextTextEmailAddress.text.toString(),
+                    editTextTextSalary.text.toString().toDouble()
+                )
+                dataBase.employeeDao().insertAll(employee)
+                employeeCorrectAddedToast(editTextTextPersonName.text.toString(), editTextTextSurrname.text.toString())
+                val intent = Intent(this@AddWorkerActivity, WorkerListActivity::class.java)
+                startActivity(intent)
+            }else{
+                employeeFailAddedToast()
+            }
+
         }
 
     }
-    private fun showToastInfo(firstName : String, lastName :String){
-        val myToast = Toast.makeText(applicationContext,"Pomyślnie dodano pracownika o imieniu $firstName $lastName",Toast.LENGTH_LONG)
+    private fun employeeCorrectAddedToast(firstName : String, lastName :String){
+        val myToast = Toast.makeText(applicationContext, "${R.string.toast_employee_success}  $firstName $lastName",Toast.LENGTH_LONG)
+        myToast.show()
+    }
+    private fun employeeFailAddedToast(){
+        val myToast = Toast.makeText(applicationContext,R.string.toast_employee_fail  ,Toast.LENGTH_LONG)
         myToast.show()
     }
 
